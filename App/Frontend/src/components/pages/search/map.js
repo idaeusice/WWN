@@ -5,6 +5,7 @@ import React,
 	from 'react';
 import { GoogleMap, LoadScript, InfoWindow, Marker } from '@react-google-maps/api';
 import MapStyle from "./mapStyle.json";
+import MAPSAPIKEY from './mapapi.json';
 
 /* DEV NOTES 
 * API calls should use an environment variable or be adjusted to point to 
@@ -22,6 +23,7 @@ const containerStyle = {
 	width: '100%',
 	height: '100%'
 };
+
 
 const Map = ({data, handleActiveMarker, active, setActive, range, location, setLocation, currMarkers}) => {
 	//a backup, default location if the user rejects the geolocation request for the map. 
@@ -48,7 +50,7 @@ const Map = ({data, handleActiveMarker, active, setActive, range, location, setL
 	//old api key: AIzaSyB0-ftuMjsHGds4c5TrWgEa7h6ilMfJye8
 	return (
 		<LoadScript
-			googleMapsApiKey='AIzaSyD4YzQMWoVijPevGTur61ekzEvgzlrkAyI'
+			googleMapsApiKey={MAPSAPIKEY}
 			libraries={['geometry']}
 		>
 			<GoogleMap
